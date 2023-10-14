@@ -1,0 +1,165 @@
+{% extends 'ownshop/adminBase.html' %}
+{% load static %} 
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'ownshop/css/adminpages.css' %}" />
+
+{% endblock css %} 
+
+{% block title %} ADMIN | EDIT ORDER {% endblock title %}
+
+
+{% block main-content %}
+
+<div class="col-md-9">
+  <div class="row justify-content-between">
+    <div class="col-sm-9">
+      <span class="selectText">Change Order</span>
+    </div>
+  </div>
+  <hr style="margin-top: 20px" />
+
+  <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+    {% for o in order %}
+ 
+    <div class="row">
+
+        <div class="col-sm-2">
+            <span class="prDetails">Provider Order Id :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="orderid" id="" class="prInput" value="{{o.provider_order_id}}" ></span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Payment Id :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="paymentid" id="" class="prInput" value="{{o.payment_id}}" ></span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Signature Id :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="signatureid" id="" class="prInput" value="{{o.signature_id}}" ></span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Status :</span>
+        </div>
+   
+        <div class="col-sm-1">
+            <span><input type="checkbox" name="status" id="" class="prInput" {% if o.status == True %}  checked {% endif %} ></span>
+        </div>
+        
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Items Json :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="itemjson" id="" class="prInput" value="{{o.items_json}}" ></span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Amount :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="number" name="amount" id="" class="prInput" value="{{o.amount}}" ></span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Email :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="email" name="email" id="" class="prInput" value="{{o.email}}" ></span>
+        </div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Name :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="name" id="" class="prInput" value="{{o.name}}" ></span>
+        </div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Address :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="address" id="" class="prInput" value="{{o.address}}" ></span>
+        </div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">City :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="city" id="" class="prInput" value="{{o.city}}" ></span>
+        </div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">State :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="state" id="" class="prInput" value="{{o.state}}" ></span>
+        </div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Zip Code :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="zipcode" id="" class="prInput" value="{{o.zip_code}}" ></span>
+        </div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Mobile :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="mobile" id="" class="prInput" value="{{o.mobile}}"  ></span>
+        </div>
+      </div>
+      <hr>
+      
+      <div class="row justify-content-center">
+        <div class="col-sm-6 d-grid gap-2">
+            <button type="submit" class="btn btn-outline-danger mb-4 editBtn" name="delOrder">Delete</button>
+        </div>
+        <div class="col-sm-6">
+            <button type="submit" class="btn btn-outline-success editBtn" name="editOrder">Save</button>
+        </div>
+      </div>
+    
+    {% endfor %}
+  </form>
+</div>
+
+{% endblock main-content %}

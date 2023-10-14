@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="shortcut icon" href="{% static 'ownshop/favicon/fav.png' %}" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'ownshop/css/bootstrap.min.css' %}"> -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'ownshop/css/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+
+    {% block css %}{% endblock css %}
+
+    <title>OWNSHOP | {% block title %}{% endblock title %}</title>
+  </head>
+
+  <body>
+    <!--navigation bar start  -->
+
+    <nav
+      class="navbar navbar-expand-lg navbar-dark"
+      style="background-color: black; font-weight: bold"
+    >
+      <a class="navbar-brand" href="{% url 'home' %}">OWNSHOP</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}"
+              >Home <span class="sr-only"></span
+            ></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'faishion' %}">Faishion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'electronics' %}">Electronics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'tracker' %}">Orders</a>
+          </li>
+        </ul>
+
+        <form class="">
+          {% if user.is_authenticated %}
+          <p
+            class="pr-4 text-white mt-2 d-inline-block"
+            style="font-size: 1.3rem"
+          >
+            Hello! {{user.first_name}}
+          </p>
+          <a href="{% url 'logout' %}" class="text-white mr-4" id="navitm"
+            >LogOut</a
+          >
+          {% else %}
+          <a href="{% url 'login' %}" class="text-white p-2" id="navitm"
+            >Login</a
+          >
+          <a href="{% url 'registration' %}" class="text-white p-2" id="navitm"
+            >Registration</a
+          >
+          {% endif %}
+
+          {% if user.is_superuser %}
+          <a href="{% url 'adminpage' %}" class="text-white p-2" id="navitm"
+            >Admin Page</a
+          >
+          {% endif %}
+        </form>
+
+        <button
+          type="button"
+          id="popcart"
+          class="btn btn-secondary mt-2 p-1 bg-success"
+          data-container="body"
+          data-toggle="popover"
+          data-placement="bottom"
+          data-html="true"
+          data-content="Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus."
+        >
+          <h4>
+            <i class="bi bi-cart-check">(<span id="cart">0</span>)</i>
+          </h4>
+        </button>
+      </div>
+    </nav>
+    <!-- navigation bar ends -->
+
+    {% block main-content %} {% endblock main-content %}
+
+    <!--footer section starts -->
+
+    <div
+      class="container-fluid text-white"
+      style="background-color: black; font-weight: bold"
+    >
+      <div class="row justify-content-center p-4">
+        <div class="col-md-3">
+          <h3>OWNSHOP</h3>
+          <p>Design and Developed by :</p>
+          <p><b>Avneesh Kumar</b></p>
+          <p>Contact : <b>+919997666609</b></p>
+          <p>Email : <b>Avnishldh97@gmail.com</b></p>
+        </div>
+        <div class="col-md-3">
+          <h3>Get to Know Us</h3>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="pages\aboutus.html" class="nav-link" style="color: white"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="pages\careers.html" class="nav-link" style="color: white"
+                >Careers</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="pages\shopcares.html"
+                class="nav-link"
+                style="color: white"
+                >Shop Cares</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="pages\help.html" class="nav-link" style="color: white"
+                >Help</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h3>Connect with Us</h3>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a
+                href="https://www.facebook.com/AVNEESH.VERM/"
+                class="nav-link"
+                style="color: white"
+                >Facebook</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://twitter.com/home"
+                class="nav-link"
+                style="color: white"
+                >Twitter</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://www.instagram.com/im.a_v/"
+                class="nav-link"
+                style="color: white"
+                >Instagram</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+  ></script>
+
+  <script>
+    if (localStorage.getItem("cart") == null) {
+      var cart = {};
+    } else {
+      cart = JSON.parse(localStorage.getItem("cart"));
+    }
+
+    var sum = 0;
+    var totalPrice = 0;
+    if ($.isEmptyObject(cart)) {
+      mystr =
+        "<p>Your Cart is empty , Please add some items to your cart before checking out!</p>";
+      $("#items").append(mystr);
+    } else {
+      for (item in cart) {
+        let name = cart[item][1];
+        let qty = cart[item][0];
+        let itemPrice = cart[item][2];
+        sum = sum + qty;
+        totalPrice = totalPrice + qty * itemPrice;
+        mystr = `<li class="list-group-item d-flex justify-content-between align-items-center border rounded mt-2"> ${name}<span class="badge badge-primary badge-pill">${qty}</span></li>`;
+
+        $("#items").append(mystr);
+      }
+    }
+
+    document.getElementById("cart").innerHTML = sum;
+    document.getElementById("totalPrice").innerHTML = totalPrice;
+    $("#itemsjson").val(JSON.stringify(cart));
+  </script>
+  {% block js %} {% endblock js %}
+</html>

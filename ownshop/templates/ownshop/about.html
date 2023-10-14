@@ -1,0 +1,70 @@
+{% extends 'ownshop/basic.html' %}
+
+{% load static %}
+{% block title %}About Us {% endblock title %}
+
+{% block main-content %}
+<div class="container-fluid pt-4 pb-2"  style="background-color: antiquewhite;">
+
+<div class="container"  style="background-color: whitesmoke; box-shadow: 5px 5px 5px 5px;">
+	<div class="row">
+		<div class="col-12 my-4">
+			<h1 class="lg-text text-center fw-bold">About Us</h1>
+			<p class="image-aboutus-para text-center">Ownshop is known for its disruption of well-established industries
+				through technological innovation and mass scale.</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<img src="{% static 'ownshop/images/about.png' %}" class="img-fluid" alt="">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 my-4">
+			<h2 class="strong text-center fw-bold" style="line-height: 6vh;">Who we are and what we do</h2>
+			<p style="line-height: 1.6em;">This is the world's leading Web portal for easy and quick.
+				The domain ownshop.com attracted at least 615 million visitors
+				annually by 2008; by the beginning of 2016, over 130 million
+				customers were visiting the U.S. website each month. The company
+				has invested heavily in a massive amount of server capacity for its
+				website, especially to handle the excessive traffic during the
+				Christmas holiday season. According to Alexa Internet rankings,
+				ownshop.com is the third most popular website in the United States and the
+				11th most popular website worldwide.
+			</p>
+		</div>
+	</div>
+	<hr>
+	<h3 class="text-center p-2 fw-bold">Our Skillful Employees</h3>
+	<div class="row justify-content-center mt-2 mb-4">
+		
+		<div class="col-md-3 p-4">
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top" src="{% static 'ownshop/images/user1.jpg' %}" alt="Card image cap" style="height: 18rem;">
+				<div class="card-body">
+				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				</div>
+			  </div>
+		</div>
+		<div class="col-md-3 m-4">
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top" src="{% static 'ownshop/images/user4.png' %}" alt="Card image cap" style="height: 18rem;">
+				<div class="card-body">
+				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				</div>
+			  </div>
+		</div>
+		<div class="col-md-3 p-4">
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top" src="{% static 'ownshop/images/user3.jpg' %}" alt="Card image cap" style="height: 18rem;">
+				<div class="card-body">
+				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				</div>
+			  </div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+{% endblock main-content %}

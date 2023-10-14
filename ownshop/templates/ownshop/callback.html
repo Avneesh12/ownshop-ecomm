@@ -1,0 +1,50 @@
+{% extends 'ownshop/basic.html' %} 
+
+{% load static %} 
+
+{% block main-content %}
+
+
+<div class="container p-4 mt-4 mb-4" style="min-height: 100vh; box-shadow: 5px 5px 5px 5px">
+
+{% if status %}
+
+  <div class="row justify-content-center m-4">
+    <div class="col-md-12">
+      <h4 class="text-center">
+        <strong
+          >Thanks for Ordering with Us. Your Order ID is : 
+          <span class="text-success under">{{id}}</span> . use it for track
+          your order.</strong
+        >
+      </h4>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <img
+        src="{% static 'ownshop/images/Paymentsuccessful.png' %}"
+        alt="img"
+        class="img-fluid"
+      />
+    </div>
+  </div>
+
+{% endif %}
+
+</div>
+
+
+{% endblock main-content %} 
+  
+  
+  {% block js %}
+  <script>
+
+    {% if thank %}
+    localStorage.clear();
+    {% endif %}
+  </script>
+
+  {% endblock js %}
+

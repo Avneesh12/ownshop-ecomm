@@ -1,0 +1,77 @@
+{% extends 'ownshop/adminBase.html' %}
+{% load static %} 
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'ownshop/css/adminpages.css' %}" />
+
+{% endblock css %} 
+
+{% block title %} ADMIN | EDIT CONTACT {% endblock title %}
+
+
+{% block main-content %}
+
+<div class="col-md-9">
+  <div class="row justify-content-between">
+    <div class="col-sm-9">
+      <span class="selectText">Change Customer</span>
+    </div>
+  </div>
+  <hr style="margin-top: 20px" />
+
+  <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+    {% for c in contact %}
+    
+    <div class="row">
+
+        <div class="col-sm-2">
+            <span class="prDetails"> Name :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="name" id="" class="prInput" value="{{c.name}}"></span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Email :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="email" name="email" id="" class="prInput" value="{{c.email}}"></span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Phone :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="tel" name="phone" id="" class="prInput" value="{{c.phone}}"></span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Desc :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="desc" id="" class="prInput" value="{{c.desc}}"></span>
+        </div>
+      </div>
+      <hr>
+
+      
+      <div class="row justify-content-center">
+        <div class="col-sm-6 d-grid gap-2">
+            <button type="submit" class="btn btn-outline-danger mb-4 editBtn" name="delContact">Delete</button>
+        </div>
+        <div class="col-sm-6">
+            <button type="submit" class="btn btn-outline-success editBtn" name="editContact">Save</button>
+        </div>
+      </div>
+    
+    {% endfor %}
+  </form>
+</div>
+
+{% endblock main-content %}

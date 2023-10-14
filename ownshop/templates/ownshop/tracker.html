@@ -1,0 +1,56 @@
+{% extends 'ownshop/basic.html' %} {% load static %} {% block title %}Order
+Tracker {% endblock title %} {% block main-content %}
+
+<div class="container" style="min-height: 100vh">
+  <div class="row justify-content-center pt-2 pb-4">
+    <div class="col-md-12">
+      <h1 class="text-center">Your Orders</h1>
+      <hr />
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            name="orid"
+            placeholder="Enter Order ID"
+            aria-label=""
+            aria-describedby="button-addon2"
+          />
+          <button
+            class="btn btn-outline-success"
+            type="submit"
+            id="button-addon2"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {% for myorder in oid %}
+
+  <div
+    class="row justify-content-center p-4 mb-4"
+    style="box-shadow: 5px 5px 5px 5px"
+  >
+    <div class="col-md-4">
+      <img
+        src="{{myorder.3}}"
+        class="img-thumbnail"
+        style="width: 15rem; height: 15rem"
+        alt="ordered product"
+      />
+    </div>
+    <div class="col-md-4 text-start pt-2">
+      <p>Quantity : {{myorder.0}}</p>
+      <p>Product Name : {{myorder.1}}</p>
+      <p>Product Price Rs.{{myorder.2}}</p>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
+
+{% endblock main-content %}

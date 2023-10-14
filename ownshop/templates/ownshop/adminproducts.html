@@ -1,0 +1,46 @@
+{% extends 'ownshop/adminBase.html' %}
+
+{% load static %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'ownshop/css/adminpages.css' %}">
+
+{% endblock css %}
+
+{% block title %} ADMIN | PRODUCTS {% endblock title %}
+
+
+
+{% block main-content %}
+
+<div class="col-md-9">
+  <div class="row justify-content-between">
+    <div class="col-sm-9">
+      <span class="selectText">Select Product to Change</span>
+    </div>
+    <div class="col-sm-3" style="float: right;">
+      <button class="addBtn">
+        <a href="{% url 'add_product_details' %}">ADD PRODUCT <span>+</span> </a>
+      </button>
+    </div>
+  </div>
+  <hr style="margin-top: 40px;">
+
+  <div class="row justify-content-center  ">
+    <div class="col-sm-11 bg-light border-top border-bottom pt-1 pb-1 ">
+      <span >Products</span>
+    </div>
+    {% for product in products %}
+    <div class="col-sm-11 bg-light border-top border-bottom pt-1 pb-1 mt-2 ">
+      <span >
+        <a href="/adminpage/product/{{product.id}}" class="productName">{{forloop.counter}} => {{product.product_name}}</a>
+      </span>
+    </div>
+    {% endfor %}
+  </div>
+  
+  
+</div>
+
+{% endblock main-content %}

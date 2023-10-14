@@ -1,0 +1,49 @@
+{% extends 'ownshop/adminBase.html' %}
+
+{% block title %} CONTACTS {% endblock title %}
+
+
+{% block main-content %}
+
+<div class="col-md-9">
+  <div class="row justify-content-between">
+    <div class="col-sm-9">
+      <span class="selectText">Select Contact to Change</span>
+    </div>
+    <div class="col-sm-3" style="float: right">
+      <button class="addBtn">
+        <a href="{% url 'add_contact_details' %}">ADD CONTACT <span>+</span> </a>
+      </button>
+    </div>
+  </div>
+  <hr style="margin-top: 40px" />
+
+  <div class="row justify-content-center">
+    <div class="col-sm-11 bg-light border-top border-bottom pt-1 pb-1">
+      <span>Contacts</span>
+    </div>
+    {% for contact in contacts %}
+    <div class="col-sm-11 bg-light border-top border-bottom pt-1 pb-1 mt-2">
+      <span>
+        <a href="/adminpage/contact/{{contact.msg_id}}" class="productName"
+          >{{forloop.counter}} => {{contact.name}}</a
+        >
+      </span>
+    </div>
+
+    {% empty %}
+
+    <div class="col-sm-11 bg-light border-top border-bottom pt-1 pb-1 mt-2">
+      <span class="productName">
+        0 Contact
+      </span>
+    </div>
+
+    {% endfor %}
+
+
+
+  </div>
+</div>
+
+{% endblock main-content %}

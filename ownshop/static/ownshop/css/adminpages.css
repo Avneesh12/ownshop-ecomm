@@ -1,0 +1,97 @@
+.sideBar{
+    height: 90vh; 
+    position: sticky; 
+    top: 0vh; 
+    z-index: 100;
+}
+
+.sideBarRow{
+    min-height: 100vh;
+}
+
+@media only screen and (max-width: 600px){
+    .sideBar{
+        max-height: 40vh; 
+        position: static; 
+    }
+
+    .sideBarRow{
+        min-height: 40vh; 
+    }
+}
+
+
+.selectText{
+    font-size: 20px; 
+    opacity: 0.7; 
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.addBtn{
+    width: 120px;
+    border: none;
+    border-radius: 20px;
+    background-color: gray;
+    font-weight: 300;
+    font-size: 12px;
+    position: absolute;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.addBtn:hover{
+    background-color: black;
+}
+
+.addBtn a{
+    text-decoration: none;
+    color: white;
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.addBtn a span{
+    font-size: 20px;
+    position: relative;
+    top: 3px;
+    font-weight: bold;
+}
+
+
+.productName{
+    text-decoration: none ;
+    color: #5b88a1 ;
+    font-size: 14px;
+}
+
+.productName:hover{
+    color: #435763 ;
+}
+
+
+.prDetails{
+    font-size: 14px ;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.prInput{
+    width: 80%;
+    height: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.705);
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 300;
+    padding: 2px;
+
+}
+
+.changeFile{
+    font-size: 13px;
+}
+
+.editBtn{
+    width: 70%;
+}

@@ -1,0 +1,89 @@
+{% extends 'ownshop/adminBase.html' %}
+{% load static %} 
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'ownshop/css/adminpages.css' %}" />
+
+{% endblock css %} 
+
+{% block title %} ADMIN | ADD USER {% endblock title %}
+
+
+{% block main-content %}
+
+<div class="col-md-9">
+  <div class="row justify-content-between">
+    <div class="col-sm-9">
+      <span class="selectText">Add Customer</span>
+    </div>
+  </div>
+  <hr style="margin-top: 20px" />
+
+  <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+    
+    <div class="row">
+
+      <div class="col-sm-2">
+          <span class="prDetails">Email :</span>
+      </div>
+      <div class="col-sm-5">
+          <span><input type="email" name="email" id="" class="prInput" ></span>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-2">
+          <span class="prDetails">First Name :</span>
+      </div>
+      <div class="col-sm-5">
+          <span><input type="text" name="fname" id="" class="prInput" ></span>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-2">
+          <span class="prDetails">Last Name :</span>
+      </div>
+      <div class="col-sm-5">
+          <span><input type="text" name="lname" id="" class="prInput" ></span>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-2">
+          <span class="prDetails">Mobile :</span>
+      </div>
+      <div class="col-sm-5">
+          <span><input type="tel" name="mobile" id="" class="prInput" ></span>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-2">
+          <span class="prDetails">Address :</span>
+      </div>
+      <div class="col-sm-5">
+          <span><input type="text" name="address" id="" class="prInput" ></span>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-2">
+          <span class="prDetails">Password :</span>
+      </div>
+      <div class="col-sm-5">
+          <span><input type="password" name="password" id="" class="prInput" ></span>
+      </div>
+    </div>
+    <hr>
+
+    
+    <div class="row justify-content-center">
+      <div class="col-sm-12 d-grid gap-2">
+          <button type="submit" class="btn btn-outline-success mb-4 editBtn" name="addUser">Add</button>
+      </div>
+
+</form>
+</div>
+
+{% endblock main-content %}

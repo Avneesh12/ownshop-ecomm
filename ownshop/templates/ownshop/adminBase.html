@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link rel="shortcut icon" href="{% static 'ownshop/favicon/adminfav.png' %}" type="image/x-icon">
+
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'ownshop/css/bootstrap.min.css' %}"> -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'ownshop/css/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+<link rel="stylesheet" href="{% static 'ownshop/css/adminpages.css' %}">
+
+
+    {% block css %}{% endblock css %}
+
+    <title>OWNSHOP | {% block title %}{% endblock title %}</title>
+  </head>
+
+  <body>
+    <!--navigation bar start  -->
+
+    <nav
+      class="navbar navbar-expand-lg navbar-dark"
+      style="background-color: #5b88a1; font-weight: bold"
+    >
+      <span class="navbar-brand" style="color: yellow"
+        >OWNSHOP ADMIN PANEL</span
+      >
+
+      <div
+        class="collapse navbar-collapse justify-content-end"
+        id="navbarSupportedContent"
+      >
+        <form class="flex-end">
+          {% if user.is_authenticated %}
+          <p
+            class="pr-4 text-white mt-2 d-inline-block"
+            style="font-size: 1.3rem"
+          >
+            Welcome ! ({{user.first_name}})
+          </p>
+          <a href="{% url 'home' %}" class="text-white mr-4" id="navitm"
+            >Back to Home</a
+          >
+          <a href="{% url 'logout' %}" class="text-white mr-4" id="navitm"
+            >LogOut</a
+          >
+          {% endif %}
+        </form>
+      </div>
+    </nav>
+    <!-- navigation bar ends -->
+
+    <div class="container-fluid mt-4">
+      <div class="row">
+        <div class="col-md-3 sideBar">
+          <div class="row justify-content-end sideBarRow" >
+            <div class="col-md-10 border border-1">
+              <div class="row" style="color: #5b88a1">
+                <div
+                  class="col-md-12 border-bottom text-white pt-1 pb-1"
+                  style="background-color: #5b88a1"
+                >
+                <a
+                href="{% url 'adminpage' %}"
+                class="text-white"
+                id="navitm"
+                >OWNSHOP</a
+              >
+                </div>
+                
+                <div class="col-md-12 border-bottom pt-1 pb-1">
+                    <a
+                    href="{% url 'admincontact' %}"
+                    class=""
+                    id="navitm"
+                    style="color: #5b88a1"
+                    >Conatcts</a
+                  >
+                </div>
+                <div class="col-md-12 border-bottom pt-1 pb-1">
+                    <a
+                    href="{% url 'adminproducts' %}"
+                    class=""
+                    id="navitm"
+                    style="color: #5b88a1"
+                    >Products</a
+                  >
+                </div>
+                <div class="col-md-12 border-bottom pt-1 pb-1">
+                    <a
+                    href="{% url 'adminorders' %}"
+                    class=""
+                    id="navitm"
+                    style="color: #5b88a1"
+                    >Orders</a
+                  >
+                </div>
+                <div class="col-md-12 border-bottom pt-1 pb-1">
+                  <a
+                  href="{% url 'adminusers' %}"
+                  class=""
+                  id="navitm"
+                  style="color: #5b88a1"
+                  >Users</a
+                >
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          {% block main-content %} {% endblock main-content %}
+
+      </div>
+    </div>
+  </body>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+  ></script>
+
+  {% block js %} {% endblock js %}
+</html>

@@ -1,0 +1,123 @@
+{% extends 'ownshop/adminBase.html' %}
+{% load static %} 
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'ownshop/css/adminpages.css' %}" />
+
+{% endblock css %} 
+
+{% block title %} ADMIN | EDIT PRODUCT {% endblock title %}
+
+
+{% block main-content %}
+
+<div class="col-md-9">
+  <div class="row justify-content-between">
+    <div class="col-sm-9">
+      <span class="selectText">Change Product</span>
+    </div>
+  </div>
+  <hr style="margin-top: 20px" />
+
+  <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+    {% for p in product %}
+    
+    <div class="row">
+        <div class="col-sm-10 mb-2">
+            <h5>{{p.product_name}}</h5>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-sm-2">
+            <span class="prDetails">Product Name :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="productname" id="" class="prInput" value="{{p.product_name}}"></span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Desc1 :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="desc1" id="" class="prInput" value="{{p.desc1}}"></span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Desc2 :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="desc2" id="" class="prInput" value="{{p.desc2}}"></span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Desc3 :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="desc3" id="" class="prInput" value="{{p.desc3}}"></span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Product catagory :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="catagory" id="" class="prInput" value="{{p.product_catagory}}"></span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Product sub catagory :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="text" name="subcatagory" id="" class="prInput" value="{{p.product_sub_catagory}}"></span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Product price :</span>
+        </div>
+        <div class="col-sm-5">
+            <span><input type="number" name="price" id="" class="prInput" value="{{p.product_price}}"></span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-2">
+            <span class="prDetails">Image: :</span>
+        </div>
+        <div class="col-sm-5">
+            <div class="row">
+                <div class="col-sm-10">
+                    <span class="changeFile">Currently : {{p.image}} </span>
+                </div>
+                <div class="col-sm-10">
+                    <span class="changeFile">Change : <input type="file" name="image" id="" > </span>
+                </div>
+            </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row justify-content-center">
+        <div class="col-sm-6 d-grid gap-2">
+            <button type="submit" class="btn btn-outline-danger mb-4 editBtn" name="delProduct">Delete</button>
+        </div>
+        <div class="col-sm-6">
+            <button type="submit" class="btn btn-outline-success editBtn" name="editProduct">Save</button>
+        </div>
+      </div>
+    
+    {% endfor %}
+  </form>
+</div>
+
+{% endblock main-content %}
